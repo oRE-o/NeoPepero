@@ -16,7 +16,7 @@ export function Pepero() {
   }, []);
 
   // 자동 회전 애니메이션
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (groupRef.current) {
       groupRef.current.rotation.y += delta * 0.8;
     }

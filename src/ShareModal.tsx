@@ -1,5 +1,4 @@
 // src/ShareModal.tsx
-import React from "react";
 import "./ShareModal.css"; // (CSS는 그대로 v3.0 쓰면 돼!)
 
 // ⭐️ 1. Props 타입에 onShareSuccess 추가!

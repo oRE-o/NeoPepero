@@ -23,7 +23,7 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   // ⭐️ 2. 3가지 카운트 상태 만들기
-  const [toggleCount, setToggleCount] = useState(0); // 기존 토글 횟수
+  const [_toggleCount, setToggleCount] = useState(0); // 기존 토글 횟수
   const [visitorCount, setVisitorCount] = useState(0); // n명
   const [isDevModalOpen, setIsDevModalOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);

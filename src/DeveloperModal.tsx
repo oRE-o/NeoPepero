@@ -1,5 +1,4 @@
 // src/DeveloperModal.tsx
-import React from "react";
 import "./DeveloperModal.css"; // CSS 임포트
 
 interface DevModalProps {
