@@ -1,0 +1,205 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 크기 계산을 깔끔하게! */
+}
+
+html {
+  /* Pretendard를 기본 폰트로 설정! */
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+body,
+#root {
+  width: 100vw; /* 뷰포트 너비 100% */
+  height: 100vh; /* 뷰포트 높이 100% */
+  overflow: hidden; /* 스크롤바 절대 금지! */
+}
+
+/* --------------------------------- */
+/* 2. 앱 컨테이너 & 테마
+/* (모든 UI의 기준점)
+/* --------------------------------- */
+.app-container {
+  width: 100%;
+  height: 100%;
+  position: relative; /* ⭐️ 모든 버튼의 기준점이 됨! */
+  transition: background-color 0.3s ease;
+}
+
+.app-container.dark {
+  background-color: #202020;
+}
+
+.app-container.light {
+  background-color: #f5f5f5; /* 완전 흰색보다 이게 예뻐! */
+}
+
+/* --------------------------------- */
+/* 3. 3D 캔버스
+/* (화면을 가득 채움)
+/* --------------------------------- */
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block; /* ⭐️ 남는 여백(inline) 제거! */
+}
+
+/* --------------------------------- */
+/* 4. UI 오버레이 (버튼, 텍스트)
+/* (모든 UI는 z-index: 100으로 캔버스 위에!)
+/* --------------------------------- */
+
+/* --- 4-1. 상단 통계 텍스트 --- */
+.stats-display {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif; /* ⭐️ 폰트 적용! */
+  font-weight: 700;
+  pointer-events: none; /* 클릭 방지 */
+
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- 4-2. "박스로 주세요" 버튼 --- */
+.toggle-button {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+
+  background-color: #ff6969; /* 핑크! */
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif; /* ⭐️ 폰트 적용! */
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+.toggle-button:hover {
+  transform: translateX(-50%) scale(1.05);
+  background-color: #ff8585;
+}
+
+/* --- 4-3. 다크/라이트 & 공유 버튼 (공통 스타일) --- */
+.dm-toggle-button,
+.share-button {
+  position: absolute;
+  top: 20px;
+  z-index: 100;
+
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px; /* 아이콘 크기 */
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+}
+.dm-toggle-button:hover,
+.share-button:hover {
+  transform: scale(1.1);
+}
+
+/* --- 4-4. 개별 위치 --- */
+.dm-toggle-button {
+  left: 20px;
+}
+.share-button {
+  right: 20px;
+}
+
+/* --------------------------------- */
+/* 5. 테마별 UI 색상
+/* --------------------------------- */
+
+/* --- 다크 모드 --- */
+.dark .stats-display {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f0f0f0;
+}
+.dark .dm-toggle-button,
+.dark .share-button {
+  background-color: #f0f0f0;
+  color: #333;
+}
+.dark .dm-toggle-button:hover,
+.dark .share-button:hover {
+  background-color: #ffffff;
+}
+
+/* --- 라이트 모드 --- */
+.light .stats-display {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+.light .dm-toggle-button,
+.light .share-button {
+  background-color: #333;
+  color: #f0f0f0;
+}
+.light .dm-toggle-button:hover,
+.light .share-button:hover {
+  background-color: #555;
+}
+
+.dev-link-button {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  z-index: 100;
+  padding: 10px 12px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+}
+
+.dark .dev-link-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f0f0f0;
+}
+.light .dev-link-button {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+.dev-link-button:hover {
+  transform: scale(1.05);
+}
+
+.dev-modal-content p {
+  line-height: 1.7;
+  margin-bottom: 15px;
+  text-align: left;
+
+  /* ⭐️⭐️⭐️ 2. 줄바꿈을 위한 마법! ⭐️⭐️⭐️ */
+  /*
+    pre-wrap:
+    <pre> 태그처럼 공백/줄바꿈을 인식하지만,
+    텍스트가 박스를 넘어가면 자동 줄바꿈(wrap)도 해줘!
+  */
+  white-space: pre-wrap;
+}

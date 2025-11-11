@@ -1,0 +1,66 @@
+/* src/ShareModal.css (v3.0 - 링크 복사 전용) */
+
+/* 1. 모달 뒷배경 (어둡게) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 모든 것 위에! */
+}
+
+/* 2. 모달 본체 (흰색 박스) */
+.modal-content {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* 버튼 사이 간격 */
+  width: 300px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+
+  /* 클릭 이벤트가 뒷배경으로 전파되는 것 막기 */
+  user-select: none;
+}
+
+/* 3. 모달 제목 */
+.modal-content h2 {
+  margin: 0 0 10px 0;
+  font-family: "Montserrat", sans-serif;
+  color: #333;
+}
+
+/* 4. 버튼 공통 스타일 */
+.share-btn {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Pretendard", sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+}
+.share-btn:hover {
+  opacity: 0.85;
+}
+
+/* 5. "링크 복사" 버튼 */
+.share-btn.copy {
+  background-color: #007bff; /* 빤짝이는 파랑! */
+}
+
+/* 6. "닫기" 버튼 */
+.share-btn.close {
+  background-color: #e9ecef;
+  color: #555;
+  margin-top: 10px;
+}

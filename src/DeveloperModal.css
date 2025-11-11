@@ -1,0 +1,89 @@
+/* src/DeveloperModal.css (v2.0 - 긴 텍스트용!) */
+
+.dev-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dev-modal-content {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  
+  width: 90%;
+  max-width: 600px; /* 살짝 더 넓게! */
+  
+  /* ⭐️ (중요!) 텍스트가 길어지면 스크롤! */
+  max-height: 80vh; /* 화면 높이의 80% */
+  overflow-y: auto; /* Y축 스크롤 자동 */
+  
+  font-family: 'Pretendard', sans-serif;
+  color: #333;
+}
+
+/* ⭐️ (중요!) 텍스트 왼쪽 정렬! */
+.dev-modal-content h2,
+.dev-modal-content p {
+  text-align: left;
+}
+
+.dev-modal-content h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: #ff69b4; /* 핑크! 💖 */
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee; /* 구분선 */
+  padding-bottom: 5px;
+}
+.dev-modal-content h2:first-of-type {
+  margin-top: 0; /* 첫 번째 제목은 위 여백 없음 */
+}
+
+.dev-modal-content p {
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.dev-modal-content .dev-links {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+  text-align: left;
+}
+.dev-modal-content .dev-links a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #007bff;
+  text-decoration: none;
+}
+.dev-modal-content .dev-links a:hover {
+  text-decoration: underline;
+}
+
+.dev-modal-close-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #ff69b4;
+  color: white;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 30px; /* ⭐️ 링크와 여백! */
+}
+.dev-modal-close-btn:hover {
+  transform: scale(1.05);
+}
