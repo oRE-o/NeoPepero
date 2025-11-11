@@ -1,4 +1,4 @@
-# 네오-빼빼로 💖 (Neo-Pepero)
+# 네오-빼빼로 (Neo-Pepero)
 
 > ### 🍫 [neopepero.yon.cat](https://neopepero.yon.cat) 🍫
 
