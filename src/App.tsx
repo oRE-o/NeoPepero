@@ -6,38 +6,30 @@ import { Box } from "./Box";
 import { ShareModal } from "./ShareModal";
 import "./index.css";
 import { db } from "./firebaseConfig";
-// ⭐️ setDoc, increment, doc, getDoc 다 필요해!
+
 import { doc, getDoc, setDoc, increment } from "firebase/firestore";
 
-// ⭐️ 아이콘도 추가해볼까? (설치 필요! pnpm add react-icons)
 import { FaShareAlt } from "react-icons/fa";
 
-// ⭐️ 2. 새로 만든 개발자 모달 임포트!
 import { DeveloperModal } from "./DeveloperModal";
-// ⭐️ 3. (필요하면) index.css도 임포트!
+
 import "./DeveloperModal.css"; // (CSS 임포트)
 
 function App() {
-  // ... (isBoxMode, isDarkMode 상태는 그대로) ...
   const [isBoxMode, setIsBoxMode] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
 
-  // ⭐️ 2. 3가지 카운트 상태 만들기
-  const [_toggleCount, setToggleCount] = useState(0); // 기존 토글 횟수
-  const [visitorCount, setVisitorCount] = useState(0); // n명
+  const [_toggleCount, setToggleCount] = useState(0);
+  const [visitorCount, setVisitorCount] = useState(0);
   const [isDevModalOpen, setIsDevModalOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [shareCount, setShareCount] = useState(0);
   const shareDocRef = doc(db, "counts", "shares");
-  // ⭐️ 3. Firestore 문서 참조 (3개!)
   const toggleDocRef = doc(db, "counts", "toggleButton");
   const visitorDocRef = doc(db, "counts", "visitors");
 
-  // ⭐️ 4. (중요!) 처음 로드될 때 모든 카운트 불러오기 + 접속자 수 1 올리기
   useEffect(() => {
-    // 모든 카운트 값 불러오는 함수
     const fetchCounts = async () => {
-      // Promise.all로 3개를 한꺼번에 불러오자!
       const [toggleSnap, visitorSnap, shareSnap] = await Promise.all([
         getDoc(toggleDocRef),
         getDoc(visitorDocRef),
@@ -71,7 +63,6 @@ function App() {
   // ... (toggleDarkMode 함수는 그대로) ...
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
-  // ⭐️ 5. "박스로 주세요" 버튼 로직 (이제 toggleCount를 업데이트!)
   const toggleMode = async () => {
     setIsBoxMode(!isBoxMode);
     await setDoc(toggleDocRef, { total: increment(1) }, { merge: true });
@@ -91,16 +82,14 @@ function App() {
     setIsDevModalOpen(true);
   };
 
-  // ⭐️ 2. (MODIFIED!) 이게 메인 공유 버튼이 호출할 "스마트" 함수!
   const handleShare = async () => {
     const shareUrl = "https://neopepero.yon.cat";
     const shareData = {
-      title: "네오빼빼로 월드! 💖",
-      text: "너에게 네오빼빼로를 보낼게! (클릭!)",
+      title: "디지털 막대과자를 받으세요.",
+      text: "아마도 먹을 순 없습니다. 하지만 귀엽죠?",
       url: shareUrl,
     };
 
-    // 1. 모바일 (navigator.share 기능이 있으면)
     if (navigator.share) {
       try {
         await navigator.share(shareData);

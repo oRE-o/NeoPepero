@@ -10,11 +10,6 @@ export function DeveloperModal({ onClose }: DevModalProps) {
     <div className="dev-modal-overlay" onClick={onClose}>
       <div className="dev-modal-content" onClick={(e) => e.stopPropagation()}>
         {" "}
-        {/* ⭐️⭐️⭐️
-          여기부터 주인님의 텍스트!
-          (메무쨩 말투 아님!)
-          ⭐️⭐️⭐️
-        */}
         <h2>이걸 만든 이유</h2>
         <p>
           {`빼빼로데이.

@@ -15,7 +15,6 @@ export function ShareModal({ onClose, onShareSuccess }: ShareModalProps) {
       await navigator.clipboard.writeText(shareUrl);
       alert("링크가 복사되었어요! 💖\n친구에게 전달해 주세요!");
 
-      // ⭐️ 2. 복사 성공! App.tsx에게 "성공했다!"고 알리기!
       onShareSuccess();
       onClose(); // 모달 닫기
     } catch (err) {

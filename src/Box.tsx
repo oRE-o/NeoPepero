@@ -23,10 +23,6 @@ export function Box() {
   });
 
   return (
-    // ⭐️ scale 속성을 추가해서 박스 크기를 조절!
-    //    값이 작아질수록 작아져. 0.1 이면 1/10 크기야!
-    //    이 값은 GLB 파일의 원래 크기에 따라 조절해야 해.
-    //    일단 0.05 정도로 작게 시작해 볼까?
     <group ref={groupRef} scale={0.2}>
       <Gltf src="/pepero_box.glb" />
     </group>

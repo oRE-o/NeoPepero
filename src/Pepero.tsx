@@ -5,7 +5,7 @@ import * as THREE from "three";
 
 // 빼빼로 컴포넌트!
 export function Pepero() {
-  const groupRef = useRef<THREE.Group>(null!); // ⭐️ 여러 메쉬를 묶을 그룹!
+  const groupRef = useRef<THREE.Group>(null!);
 
   // 초기 기울기 설정
   useEffect(() => {
@@ -51,7 +51,6 @@ export function Pepero() {
         <meshStandardMaterial color="#4b3325" />
       </mesh>
 
-      {/* TODO: 초코 튀밥 추가 (나중에 도전!) */}
     </group>
   );
 }
