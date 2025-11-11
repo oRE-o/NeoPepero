@@ -8,7 +8,7 @@ interface ShareModalProps {
 }
 
 export function ShareModal({ onClose, onShareSuccess }: ShareModalProps) {
-  const shareUrl = "https://neopepero.yon.cat";
+  const shareUrl = "https://neo-pepero.yon.cat";
 
   const handleCopyLink = async () => {
     try {

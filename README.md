@@ -1,6 +1,6 @@
 # 네오-빼빼로 (Neo-Pepero)
 
-> ### 🍫 [neopepero.yon.cat](https://neopepero.yon.cat) 🍫
+> ### 🍫 [neopepero.yon.cat](https://neo-pepero.yon.cat) 🍫
 
 가상의 3D 빼빼로를 친구들에게 공유할 수 있는 인터랙티브 웹사이트입니다.
 
